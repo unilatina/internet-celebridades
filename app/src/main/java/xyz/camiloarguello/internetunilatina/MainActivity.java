@@ -1,5 +1,6 @@
 package xyz.camiloarguello.internetunilatina;
 
+import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,24 +14,35 @@ import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ListActivity {
 
     // Declaro variables
     DownloadTask tarea;
     String resultado;
     ArrayList<String> nombreCelebridad;
     ListView lista;
-    ArrayAdapter adaptador;
+    public MyAdapter adaptador;
+    public MyAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Inicializo
-        tarea = new DownloadTask();
         nombreCelebridad = new ArrayList<>();
-        lista = findViewById(R.id.lista);
+        nombreCelebridad.add("Juli");
+
+        adaptador = new MyAdapter(this,nombreCelebridad);
+        setListAdapter(adaptador);
+
+        /*
+
+
+        // Inicializo
+        //tarea = new DownloadTask();
+        nombreCelebridad = new ArrayList<>();
+        lista = findViewById(R.id.list);
+
 
         try {
 
@@ -65,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        /*
 
         String codigoHTML = "<div class=\"panel-pane pane-views-row newtop100--section1 newtop100--section\">\n" +
                 "\t<div class=\"container_with_line\">\n" +
@@ -117,15 +128,17 @@ public class MainActivity extends AppCompatActivity {
         Matcher m1 = p1.matcher(codigoHTML);
 
 
-        TextView hola = findViewById(R.id.hello);
+        //TextView hola = findViewById(R.id.hello);
 
         while (m1.find()){
 
-            hola.setText(m1.group(1));
+            //hola.setText(m1.group(1));
+            nombreCelebridad.add(m1.group(1));
+            //adaptador = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, nombreCelebridad);
+            setListAdapter(new MyAdapter(this,nombreCelebridad));
+            //lista.setAdapter(adaptador);
 
         }
-
-
         */
 
     }
