@@ -3,23 +3,34 @@ package xyz.camiloarguello.internetunilatina;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Declaro variables
     DownloadTask tarea;
     String resultado;
+    ArrayList<String> nombreCelebridad;
+    ListView lista;
+    ArrayAdapter adaptador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Inicializo
         tarea = new DownloadTask();
+        nombreCelebridad = new ArrayList<>();
+        lista = findViewById(R.id.lista);
 
         try {
 
@@ -44,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
             Matcher m1 = p1.matcher(codigoDividido[0]);
 
             while (m1.find()){
-                System.out.println(m1.group(1));
+                nombreCelebridad.add(m1.group(1));
+                adaptador = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, nombreCelebridad);
+                lista.setAdapter(adaptador);
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
 
         /*
@@ -118,4 +129,5 @@ public class MainActivity extends AppCompatActivity {
         */
 
     }
+
 }
