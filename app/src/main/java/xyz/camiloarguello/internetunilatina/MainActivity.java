@@ -24,32 +24,10 @@ public class MainActivity extends AppCompatActivity {
     // TODO (25) Ajustar el adaptador a recyclerview.setAdapter(adaptador creado)
     // TODO (26) Llamar un layout para renderizar todos los cardview. Usa recyclerview.setLayoutManager(new LinearLayout) -> Puedes usar otros layouts
 
-    private ArrayList<String> mText = new ArrayList<>();
-    private ArrayList<Integer> mImages = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mText.add("Colombia");
-        mImages.add(R.drawable.victoria);
-
-        mText.add("Francia");
-        mImages.add(R.drawable.imagencampo);
-
-        mText.add("Canada");
-        mImages.add(R.drawable.victoria);
-
-        mText.add("USA");
-        mImages.add(R.drawable.imagencampo);
-
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this,mImages,mText);
-
-        recyclerView.setAdapter(adapter);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
     }
 

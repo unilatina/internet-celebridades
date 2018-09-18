@@ -11,7 +11,6 @@
     cardview:cardElevation="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginHorizontal="10dp"
-    android:id="@+id/parent_layout"
     >
 
     <FrameLayout
@@ -20,7 +19,6 @@
 
         <!-- TODO (7) Añadirle ID a ImageView -->
         <ImageView
-            android:id="@+id/image_card"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/imagencampo"
@@ -40,7 +38,6 @@
 
             <!-- TODO (8) Añadirle ID a TextView Titulo -->
             <TextView
-                android:id="@+id/titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Colombia"
