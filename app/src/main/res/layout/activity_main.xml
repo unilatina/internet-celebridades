@@ -8,17 +8,11 @@
     tools:context=".MainActivity">
 
 
-    <LinearLayout
+    <!-- TODO (2) Crear una etiqueta RecyclerView con alto y ancho en Matchparent y añadirle un ID -->
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingHorizontal="10dp"
-        >
-
-        <include layout="@layout/card_view_lista" />
-        <include layout="@layout/card_view_lista" />
-
-    </LinearLayout>
+        android:id="@+id/recycler_view"/>
 
 
 </android.support.design.widget.CoordinatorLayout>

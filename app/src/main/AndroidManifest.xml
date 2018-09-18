@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="xyz.camiloarguello.internetunilatina">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- TODO (2) Activar permiso de internet  -->
 
     <application
         android:allowBackup="true"
